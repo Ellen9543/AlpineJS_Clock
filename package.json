@@ -1,0 +1,12 @@
+{
+  "scripts": {
+    "dev": "parcel index.html --no-cache",
+    "build": "parcel build index.html --no-cache"
+  },
+  "dependencies": {
+    "alpinejs": "^3.14.1"
+  },
+  "devDependencies": {
+    "parcel": "^2.12.0"
+  }
+}
