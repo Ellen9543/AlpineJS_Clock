@@ -7,11 +7,12 @@
 
 
 :root {
-  --color-primary:#A75D5D;
-  --color-secondary:#fff;
-  --color-text:#0e0e0e;
-  --color-btn-text:#0056b3;
-  --color-btn:#0056b3;
+  --color-primary:#840032;
+  --color-secondary:#E5DADA;
+  --color-text:#002642;
+  --color-bar:#E59500;
+  --color-btn-text:#002642;
+  --color-btn:#E59500;
 }
 
 html, body {
@@ -27,17 +28,22 @@ body {
 
 button {
   color: var(--color-text);
-  background: #FFC3A1;
-  padding: 2px 10px;
+  background: var(--color-btn);
+  padding: 2px 10px 0px;
   border: none;
   border-radius: 3px;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -2px 0px inset;
+}
+
+button:hover {
+  opacity:0.9;
+}
+
+button:disabled {
+  opacity: 0.5;
 }
 
 .time-input {
-  text-align: center;
-}
-
-.time-input input {
   color: var(--color-text);
   border: none;
   border-radius: 3px;
@@ -50,19 +56,24 @@ button {
 .time-area {
   text-align: center;
   font-size: 80px;
+  color: var(--color-text);
+  text-shadow: 2px 2px 2px var(--color-secondary);
 }
 
 .progress-bar-container {
-  margin: 50px auto 30px;
+  margin: 30px auto 40px;
 }
 
 .progress-bar {
   height: 40px;
   max-width: 600px;
   width: 80%;
-  border: 1px solid #000;
+  border: 2px solid #4e4c70;
   margin: auto;
   position: relative;
+  border-radius: 5px;
+  background: var(--color-secondary);
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
 }
 
 .progress-bar-bg {
@@ -70,10 +81,31 @@ button {
   top: 0;
   bottom: 0;
   left: 0;
-  background: #FFC3A1;
+  background: var(--color-bar);
   width: 100%;
+  border-radius: 3px;
+  box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
 }
 
-.btn-area {
-  text-align: center;
+.setting-area {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  align-items: center;
+}
+
+.btn-area button {
+  background: #E5DADA;
+}
+
+.fa-refresh {
+  color: #306e8b;
+}
+
+.fa-play-circle {
+  color:#f33c3c;
+}
+
+.fa-minus, .fa-plus {
+  color:var(--color-btn-text);
 }

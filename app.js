@@ -11,25 +11,34 @@ Alpine.data("app", () => ({
   totalSeconds: 0,
 
   init() {
+    this.running = false;
     this.timeArea = `${this.currTime}:00`;
+    this.updataProgressBar(100);
   },
 
   reset() {
-    this.currTime = this.initTime;
+    this.paused = true;
+    this.stopTimer();
+    this.init();
   },
 
   addTime() {
     this.currTime += this.timeScale;
+    this.init();
   },
 
   reduceTime() {
     this.currTime =
       this.currTime - this.timeScale > 0 ? this.currTime - this.timeScale : 1;
+    this.init();
+  },
+
+  setTime() {
+    this.init();
   },
 
   run() {
     if (!this.running) {
-      this.init();
       this.paused = false;
       this.start();
     } else {
@@ -73,7 +82,6 @@ Alpine.data("app", () => ({
   },
 
   updataProgressBar(percentage) {
-    console.log(percentage, this.$refs.progressBar);
     this.$refs.progressBar.style.width = percentage + "%";
   },
 

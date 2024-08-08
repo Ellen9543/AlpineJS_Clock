@@ -13,35 +13,42 @@
   </head>
   <body>
     <div x-data="app" @keydown.space="run">
+      <div x-text="timeArea" class="time-area"></div>
+
       <section class="progress-bar-container">
         <div class="progress-bar">
           <div class="progress-bar-bg" x-ref="progressBar"></div>
         </div>
       </section>
+      
+      <section class="setting-area">
+        <div>
+          <button @click="reduceTime" :disabled="!paused">
+            <i class="fa fa-minus" aria-hidden="true"></i>
+          </button>
+          <input
+            class="time-input"
+            type="number"
+            min="1"
+            x-model="currTime"
+            x-on:change.debounce="setTime"
+            autofocus
+            :disabled="!paused"
+          />
+          <button @click="addTime" :disabled="!paused">
+            <i class="fa fa-plus" aria-hidden="true"></i>
+          </button>
+        </div>
 
-      <div class="time-input">
-        <button @click="reduceTime">
-          <i class="fa fa-minus" aria-hidden="true"></i>
-        </button>
-        <input type="number" min="1" x-model="currTime" autofocus />
-        <button @click="addTime">
-          <i class="fa fa-plus" aria-hidden="true"></i>
-        </button>
-      </div>
-
-      <div x-text="timeArea" class="time-area"></div>
-
-      <div class="btn-area">
-        <button @click="reset">
-          <i class="fa fa-refresh" aria-hidden="true"></i>
-        </button>
-        <button @click="run">
-          <i
-            :class="paused ? 'fa fa-play-circle' : 'fa fa-pause-circle'"
-            class="fa fa-play-circle"
-          ></i>
-        </button>
-      </div>
+        <div class="btn-area">
+          <button @click="reset">
+            <i class="fa fa-refresh" aria-hidden="true"></i>
+          </button>
+          <button @click="run">
+            <i :class="paused ? 'fa fa-play-circle' : 'fa fa-pause-circle'"></i>
+          </button>
+        </div>
+      </section>
     </div>
   </body>
 </html>
