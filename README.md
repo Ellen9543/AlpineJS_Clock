@@ -22,3 +22,5 @@ AlpineJS_Clock 是一個基於番茄工作法設計的應用，使用 Alpine.js 
 
 
 ![image](https://github.com/user-attachments/assets/f239d36b-1742-4ff4-88a7-26a74b869726)
+
+#### ※ 待優化項目: 增加休息狀態可直接做切換
